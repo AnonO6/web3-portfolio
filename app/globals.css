@@ -1,0 +1,151 @@
+@tailwind base; 
+@tailwind components; 
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+  /* Improve rendering performance */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  footer > div {
+    justify-content: center;
+  }
+  
+  /* Add responsive styles for header buttons */
+  .header-buttons {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .header-buttons > * {
+    flex-shrink: 0;
+  }
+}
+
+/* Optimized neon effect - use transform instead of box-shadow for better performance */
+.neon-container-light {
+  position: relative;
+  border: 1px solid rgba(0, 195, 255, 0.3);
+  /* Remove complex animations for basic version */
+}
+
+/* Use CSS will-change to optimize animations */
+.neon-container {
+  position: relative;
+  border: 1px solid rgba(0, 195, 255, 0.5);
+  /* Use a more efficient neon effect */
+  box-shadow: 0 0 5px rgba(0, 195, 255, 0.3);
+  will-change: transform, opacity;
+}
+
+/* Only apply the complex animations on larger screens or when user prefers reduced motion is not set */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .neon-container::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 195, 255, 0.3), transparent);
+    background-size: 200% 100%;
+    animation: neonTravel 8s linear infinite;
+    filter: blur(5px);
+    z-index: -1;
+    will-change: background-position;
+  }
+  
+  @keyframes neonTravel {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 200% 0%;
+    }
+  }
+}
+
+/* Add these new styles for the scrollable layout */
+@media (min-width: 1024px) {
+  body {
+    overflow: hidden;
+  }
+  
+  .lg\:h-\[calc\(100vh-5rem\)\] {
+    height: calc(100vh - 5rem);
+  }
+  
+  .lg\:overflow-y-auto {
+    overflow-y: auto;
+  }
+  
+  .lg\:ml-\[25\%\] {
+    margin-left: 25%;
+  }
+  
+  .xl\:ml-\[20\%\] {
+    margin-left: 20%;
+  }
+}
+
+/* Ensure content is scrollable on all screen sizes */
+.overflow-y-auto {
+  overflow-y: auto;
+  max-height: calc(100vh - 5rem);
+  /* Add will-change for smoother scrolling */
+  will-change: transform;
+  /* Better scrolling on Apple devices */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Adjust padding to account for the footer */
+.overflow-y-auto {
+  padding-bottom: 5rem;
+}
+
+/* Add this for hardware acceleration */
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Add intersection observer fallback class */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Preload critical elements */
+.preload {
+  pointer-events: none;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
