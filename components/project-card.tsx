@@ -19,14 +19,14 @@ export function ProjectCard() {
 
   const appPreviews: AppPreview[] = [
     {
-      title: "Omikoxbt- Mantra Twitter Agent",
+      title: "Omikoxbt- Mantra Twitter Agent, capable of tweeting, trading, etc.",
       description: "Agent build for Mantra chain, capable of tweeting, trading and much more.",
       imageUrl:
         "omikoxbt.png",
       link: "https://x.com/OMikoxbt",
     },
     {
-      title: "ADMOJO Protocol",
+      title: "ADMOJO Protocol- Smarter Ads. Cryptographically Verified Engagement.",
       description: "Smarter Ads. Cryptographically Verified Engagement.",
       imageUrl:
         "admojo.png",
