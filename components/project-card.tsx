@@ -19,20 +19,32 @@ export function ProjectCard() {
 
   const appPreviews: AppPreview[] = [
     {
-      title: "Omikoxbt- Mantra Twitter Agent, capable of tweeting, trading, etc.",
-      description: "Agent build for Mantra chain, capable of tweeting, trading and much more.",
-      imageUrl:
-        "omikoxbt.png",
+      title: "Omikoxbt – Mantra Twitter Agent, capable of tweeting, trading, etc.",
+      description: "Agent built for Mantra Chain, capable of tweeting, trading and much more.",
+      imageUrl: "omikoxbt.png",
       link: "https://x.com/OMikoxbt",
     },
     {
-      title: "ADMOJO Protocol- Smarter Ads. Cryptographically Verified Engagement.",
+      title: "ADMOJO Protocol – Smarter Ads. Cryptographically Verified Engagement.",
       description: "Smarter Ads. Cryptographically Verified Engagement.",
-      imageUrl:
-        "admojo.png",
+      imageUrl: "admojo.png",
       link: "https://github.com/Ethglobal-taipei/Admojo-module",
     },
-  ]
+    {
+      title: "DronaAI – AI‑Driven Adaptive Learning Platform",
+      description:
+        "Modular multi‑agent architecture delivering personalized learning journeys with RAG‑powered content adaptation.",
+      imageUrl: "dronaai.png",
+      link: "https://github.com/DronaAI/v1",
+    },
+    {
+      title: "CaliSEC – Decentralized Secure Environment for Communication",
+      description:
+        "Privacy‑preserving secret‑sharing protocol built on Calimero, ICP canisters and ZK proofs with DAO‑based governance.",
+      imageUrl: "calisec.png",
+      link: "https://github.com/Team-Doraemon/CaliSEC-Protocol",
+    },
+  ];
 
   useEffect(() => {
     async function fetchTweet() {
