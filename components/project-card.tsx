@@ -31,7 +31,7 @@ export function ProjectCard() {
       link: "https://github.com/Ethglobal-taipei/Admojo-module",
     },
     {
-      title: "DronaAI – AI‑Driven Adaptive Learning Platform",
+      title: "DronaAI – AI‑Driven Adaptive Learning Platform With Courses that evolve with you.",
       description:
         "Modular multi‑agent architecture delivering personalized learning journeys with RAG‑powered content adaptation.",
       imageUrl: "dronaai.png",
