@@ -1,37 +1,40 @@
 import { Badge } from "@/components/ui/badge"
-import { Zap, Code, Cpu } from "lucide-react"
-
-const interests = [
-  "Building Zero Knowledge Proofs",
-  "DePIN architecture & tokenomics",
-  "Hacking on Solana & Ethereum",
-  "Breaking cryptographic systems",
-  "Playing guitar, flute, and watching anime",
-  "Attending hackathons in pajamas",
-  "Explaining blockchain to my grandma",
-  "Finding bugs in smart contracts",
-]
+import { Zap, Code, Cpu, Coins, Shield, Rocket } from "lucide-react"
 
 const skills = [
-  { name: "Solidity", icon: <Code className="h-3 w-3 mr-1" /> },
-  { name: "Golang", icon: <Code className="h-3 w-3 mr-1" /> },
+  { name: "Solidity ^0.8.x", icon: <Code className="h-3 w-3 mr-1" /> },
+  { name: "Foundry", icon: <Code className="h-3 w-3 mr-1" /> },
+  { name: "Uniswap v4 Hooks", icon: <Coins className="h-3 w-3 mr-1" /> },
+  { name: "Solana (Anchor/Rust)", icon: <Rocket className="h-3 w-3 mr-1" /> },
+  { name: "EigenLayer AVS", icon: <Shield className="h-3 w-3 mr-1" /> },
+  { name: "Golang (Fiber)", icon: <Code className="h-3 w-3 mr-1" /> },
+  { name: "TypeScript", icon: <Code className="h-3 w-3 mr-1" /> },
   { name: "Next.js", icon: <Code className="h-3 w-3 mr-1" /> },
   { name: "zkVerify", icon: <Zap className="h-3 w-3 mr-1" /> },
+  { name: "Succinct", icon: <Zap className="h-3 w-3 mr-1" /> },
+  { name: "Pyth Oracles", icon: <Coins className="h-3 w-3 mr-1" /> },
   { name: "DePIN", icon: <Cpu className="h-3 w-3 mr-1" /> },
 ]
 
 const zkProjects = [
   { name: "ZK-SNARKs", icon: "✨" },
   { name: "ZK-STARKs", icon: "🌟" },
-  { name: "ZK Rollups", icon: "🔄" },
-  { name: "Plonk", icon: "🧩" },
+  { name: "ZKVerify", icon: "🔐" },
+  { name: "MEVBuster", icon: "🛡️" },
 ]
 
 const dePINProjects = [
-  { name: "Helium", icon: "📶" },
+  { name: "Soulboard", icon: "📊" },
   { name: "Filecoin", icon: "📂" },
-  { name: "Arweave", icon: "🗄️" },
-  { name: "Render", icon: "🖥️" },
+  { name: "Lighthouse", icon: "🔦" },
+  { name: "Helium", icon: "📶" },
+]
+
+const defiProjects = [
+  { name: "Uniperp", icon: "⚡" },
+  { name: "Uniswap v4", icon: "🦄" },
+  { name: "vAMM", icon: "💹" },
+  { name: "Pyth", icon: "🔮" },
 ]
 
 export function AboutMe() {
@@ -45,36 +48,8 @@ export function AboutMe() {
               "0 0 10px #fff, 0 0 20px #00c3ff, 0 0 30px #00c3ff, 0 0 40px #00c3ff, 0 0 70px #00c3ff, 0 0 80px #00c3ff, 0 0 100px #00c3ff, 0 0 150px #00c3ff",
           }}
         >
-          ✨ Cosmic Code Wizard ✨
+          ✨ Web3 Protocol Designer & Full-Stack Engineer ✨
         </h2>
-        <p className="text-cyan-400 mt-2 italic mx-auto max-w-lg">
-          "I don't always write proofs, but when I do, I prefer zero knowledge" 🕶️
-        </p>
-      </div>
-
-      <div>
-        <h3
-          className="text-xl font-semibold mb-2 text-white"
-          style={{
-            textShadow:
-              "0 0 10px #fff, 0 0 20px #00c3ff, 0 0 30px #00c3ff, 0 0 40px #00c3ff, 0 0 70px #00c3ff, 0 0 80px #00c3ff, 0 0 100px #00c3ff, 0 0 150px #00c3ff",
-          }}
-        >
-          ☮️ Groovy Interests ☮️
-        </h3>
-        <ul className="list-disc list-inside grid grid-cols-2 gap-2">
-          {interests.map((interest, index) => (
-            <li
-              key={index}
-              className="text-sm text-white"
-              style={{
-                textShadow: "0 0 5px #fff, 0 0 10px #00c3ff, 0 0 15px #00c3ff, 0 0 20px #00c3ff, 0 0 35px #00c3ff",
-              }}
-            >
-              {interest}
-            </li>
-          ))}
-        </ul>
       </div>
 
       <div>
@@ -93,7 +68,7 @@ export function AboutMe() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <h3 className="text-xl font-semibold mb-2 text-purple-300">ZK Projects I'm Vibing With</h3>
           <div className="grid grid-cols-2 gap-3">
@@ -103,7 +78,7 @@ export function AboutMe() {
                 className="bg-gray-700/50 p-3 rounded-lg text-center hover:bg-gray-600/50 transition-colors"
               >
                 <span className="text-2xl">{project.icon}</span>
-                <p className="mt-1 font-medium">{project.name}</p>
+                <p className="mt-1 font-medium text-sm">{project.name}</p>
               </div>
             ))}
           </div>
@@ -118,7 +93,22 @@ export function AboutMe() {
                 className="bg-gray-700/50 p-3 rounded-lg text-center hover:bg-gray-600/50 transition-colors"
               >
                 <span className="text-2xl">{project.icon}</span>
-                <p className="mt-1 font-medium">{project.name}</p>
+                <p className="mt-1 font-medium text-sm">{project.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2 text-green-300">DeFi Protocols I'm Hacking</h3>
+          <div className="grid grid-cols-2 gap-3">
+            {defiProjects.map((project, index) => (
+              <div
+                key={index}
+                className="bg-gray-700/50 p-3 rounded-lg text-center hover:bg-gray-600/50 transition-colors"
+              >
+                <span className="text-2xl">{project.icon}</span>
+                <p className="mt-1 font-medium text-sm">{project.name}</p>
               </div>
             ))}
           </div>
