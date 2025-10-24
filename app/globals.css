@@ -1,6 +1,44 @@
-@tailwind base; 
-@tailwind components; 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
+
+/* Matrix Theme Font */
+@layer base {
+  * {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  
+  body {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+}
+
+/* Mobile Game Interface Styles */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Mobile touch optimization */
+  @media (max-width: 768px) {
+    * {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+  }
+}
 
 :root {
   --foreground-rgb: 255, 255, 255;
