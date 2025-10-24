@@ -19,30 +19,40 @@ export function ProjectCard() {
 
   const appPreviews: AppPreview[] = [
     {
-      title: "Omikoxbt – Mantra Twitter Agent, capable of tweeting, trading, etc.",
-      description: "Agent built for Mantra Chain, capable of tweeting, trading and much more.",
+      title: "Uniperp – Perpetual DEX on Uniswap v4 🏆",
+      description: "Built perps DEX using v4 hooks with vAMM, unified margin, funding rates, liquidation engine, and insurance fund. ETHGlobal New Delhi 2025 Winner & Finalist; Uniswap Partner Track Winner.",
+      imageUrl: "uniperp.jpeg",
+      link: "https://youtu.be/9XcA9woanBs?si=QsYPAanQRcfmp79h&t=880",
+    },
+    {
+      title: "Soulboard – DePIN Ad Protocol 🚀",
+      description: "DePIN ad protocol turning real-world ad spaces into verifiable RWAs. Solana × CoinDCX Grant - 1st in India, 4th globally at Colosseum Breakout.",
+      imageUrl: "soulboard.png",
+      link: "https://x.com/soulboardFdn",
+    },
+    {
+      title: "MEVBuster – Flash Loan Defense Toolkit 🛡️",
+      description: "Pre-trade sequencing protection with ZKVerify & EigenLayer AVS. Winner - ZKVerify Hackathon.",
+      imageUrl: "mevbuster.png",
+      link: "https://github.com/anon-pool-hook/app",
+    },
+    {
+      title: "CaliSEC – Decentralized Secure Communication 🔐",
+      description: "Zero-trust encrypted communication with zk-access policies and verifiable audit trails. Privacy-preserving secret-sharing protocol built on Calimero, ICP canisters and ZK proofs.",
+      imageUrl: "calisec.png",
+      link: "https://github.com/Team-Doraemon/CaliSEC-Protocol",
+    },
+    {
+      title: "OmikoXBT – Twitter Agent for Mantra 🤖",
+      description: "Autonomous Twitter agent executing actions based on signals; trading hooks & monitoring pipelines. Built for Mantra Chain.",
       imageUrl: "omikoxbt.png",
       link: "https://x.com/OMikoxbt",
     },
     {
-      title: "ADMOJO Protocol – Smarter Ads. Cryptographically Verified Engagement.",
-      description: "Smarter Ads. Cryptographically Verified Engagement.",
-      imageUrl: "admojo.png",
-      link: "https://github.com/Ethglobal-taipei/Admojo-module",
-    },
-    {
-      title: "DronaAI – AI‑Driven Adaptive Learning Platform With Courses that evolve with you.",
-      description:
-        "Modular multi‑agent architecture delivering personalized learning journeys with RAG‑powered content adaptation.",
+      title: "DronaAI – AI‑Driven Adaptive Learning Platform 🎓",
+      description: "Modular multi‑agent architecture delivering personalized learning journeys with RAG‑powered content adaptation.",
       imageUrl: "dronaai.png",
       link: "https://github.com/DronaAI/v1",
-    },
-    {
-      title: "CaliSEC – Decentralized Secure Environment for Communication",
-      description:
-        "Privacy‑preserving secret‑sharing protocol built on Calimero, ICP canisters and ZK proofs with DAO‑based governance.",
-      imageUrl: "calisec.png",
-      link: "https://github.com/Team-Doraemon/CaliSEC-Protocol",
     },
   ];
 

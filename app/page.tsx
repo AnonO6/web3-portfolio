@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { User, Mail, Github, Code, Zap, Cpu } from "lucide-react";
+import { User, Mail, Github, Code, Zap, Cpu, Award, Trophy, Briefcase, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
 import { HireMeButton } from "@/components/hire-me-button";
@@ -18,24 +18,42 @@ import Link from "next/link";
 import { YouTubePlayer } from "@/components/youtube-player";
 import { MusicChannelsModal } from "@/components/music-channels-modal";
 import { DonationWallet } from "@/components/donation-wallet";
+import { MobileGameInterface } from "@/components/mobile-game-interface";
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     
     // Delay loading the background video
     const timer = setTimeout(() => {
       setShowVideo(true);
     }, 1000);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   // Early return with a simple loading state
   if (!mounted) return <div className="min-h-screen bg-gray-900"></div>;
+  
+  // Show mobile game interface on mobile devices
+  if (isMobile) {
+    return <MobileGameInterface />;
+  }
 
   const socialLinks = [
     {
@@ -136,10 +154,10 @@ export default function Page() {
                   priority
                 />
               </div>
-              <p className="text-center text-xl font-mono">
-                ∃x∈{"{ZK,DePIN}"}: Prover(x) = true
+              <p className="text-center text-xl">
+                ∃x∈{"{ZK,DePIN,DeFi}"}: Prover(x) = true
               </p>
-              <div className="flex justify-center gap-2">
+              <div className="flex justify-center gap-2 flex-wrap">
                 <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-800 text-white">
                   <Zap className="h-3 w-3 mr-1" />
                   ZK
@@ -147,6 +165,10 @@ export default function Page() {
                 <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-800 text-white">
                   <Cpu className="h-3 w-3 mr-1" />
                   DePIN
+                </span>
+                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-800 text-white">
+                  <Code className="h-3 w-3 mr-1" />
+                  DeFi
                 </span>
               </div>
             </div>
@@ -215,6 +237,170 @@ export default function Page() {
                     <p className="text-xl text-cyan-300">
                       Proud Engineer 🥹. I save the world in my dreams from AGI.
                     </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Achievements Section */}
+            <div className="bg-gray-800/50 p-6 rounded-lg neon-container">
+              <h2
+                className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2"
+                style={{
+                  textShadow: "0 0 10px #fff, 0 0 20px #ffd700",
+                }}
+              >
+                <Trophy className="h-6 w-6 text-yellow-400" />
+                Latest Achievements
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-4 rounded-lg border border-purple-500/30 hover:border-purple-500/60 transition-all">
+                  <div className="flex items-start gap-3">
+                    <Trophy className="h-6 w-6 text-yellow-400 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-bold text-yellow-300">ETHGlobal New Delhi 2025</h3>
+                      <p className="text-sm text-gray-300 mt-1">Winner & Finalist for Uniperp</p>
+                      <p className="text-xs text-purple-300 mt-1">🏆 Uniswap Partner Track Winner</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 p-4 rounded-lg border border-blue-500/30 hover:border-blue-500/60 transition-all">
+                  <div className="flex items-start gap-3">
+                    <Award className="h-6 w-6 text-blue-400 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-bold text-blue-300">Solana × CoinDCX Grant</h3>
+                      <p className="text-sm text-gray-300 mt-1">Soulboard DePIN Protocol</p>
+                      <p className="text-xs text-cyan-300 mt-1">🥇 1st in India, 4th Globally at Colosseum Breakout</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 p-4 rounded-lg border border-green-500/30 hover:border-green-500/60 transition-all">
+                  <div className="flex items-start gap-3">
+                    <Trophy className="h-6 w-6 text-green-400 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-bold text-green-300">ZKVerify Hackathon</h3>
+                      <p className="text-sm text-gray-300 mt-1">MEVBuster - Flash Loan Defense</p>
+                      <p className="text-xs text-emerald-300 mt-1">🥇 1st Place Winner</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-900/50 to-red-900/50 p-4 rounded-lg border border-orange-500/30 hover:border-orange-500/60 transition-all">
+                  <div className="flex items-start gap-3">
+                    <Code className="h-6 w-6 text-orange-400 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-bold text-orange-300">Protocol Labs Dev Guide</h3>
+                      <p className="text-sm text-gray-300 mt-1">Cohort 3 Contributor</p>
+                      <p className="text-xs text-red-300 mt-1">🛠️ Contributed to Lighthouse Protocol</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Experience Timeline */}
+            <div className="bg-gray-800/50 p-6 rounded-lg neon-container">
+              <h2
+                className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2"
+                style={{
+                  textShadow: "0 0 10px #fff, 0 0 20px #00c3ff",
+                }}
+              >
+                <Briefcase className="h-6 w-6 text-cyan-400" />
+                Professional Experience
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-gray-700/50 p-5 rounded-lg border-l-4 border-purple-500 hover:bg-gray-700/70 transition-colors">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-bold text-purple-300">Co-founder, Protocol/IoT Lead</h3>
+                      <p className="text-cyan-400 font-semibold">Soulboard</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-400 text-sm">
+                      <Calendar className="h-4 w-4" />
+                      <span>2024 - Present</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm mb-2">
+                    Designed a DePIN ad protocol turning real-world ad spaces into verifiable RWAs. IoT Proof-of-Views (ESP32-CAM + GoCV) 
+                    and Proof-of-Taps (ESP32 + PN532) stream to on-chain oracle for performance-based payouts.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <span className="px-2 py-1 bg-purple-800/50 rounded text-xs">Solana</span>
+                    <span className="px-2 py-1 bg-purple-800/50 rounded text-xs">IoT</span>
+                    <span className="px-2 py-1 bg-purple-800/50 rounded text-xs">DePIN</span>
+                    <span className="px-2 py-1 bg-purple-800/50 rounded text-xs">ESP32</span>
+                  </div>
+                </div>
+
+                <div className="bg-gray-700/50 p-5 rounded-lg border-l-4 border-blue-500 hover:bg-gray-700/70 transition-colors">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300">Founder - Perpetual DEX</h3>
+                      <p className="text-cyan-400 font-semibold">Uniperp</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-400 text-sm">
+                      <Calendar className="h-4 w-4" />
+                      <span>2025</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm mb-2">
+                    Built a perps DEX using v4 hooks with vAMM, unified margin, funding rates, liquidation engine, and insurance fund. 
+                    Added median price correction and MEV/flash-loan defenses. Integrated Pyth Oracles.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <span className="px-2 py-1 bg-blue-800/50 rounded text-xs">Solidity</span>
+                    <span className="px-2 py-1 bg-blue-800/50 rounded text-xs">Uniswap v4</span>
+                    <span className="px-2 py-1 bg-blue-800/50 rounded text-xs">DeFi</span>
+                    <span className="px-2 py-1 bg-blue-800/50 rounded text-xs">Foundry</span>
+                  </div>
+                </div>
+
+                <div className="bg-gray-700/50 p-5 rounded-lg border-l-4 border-green-500 hover:bg-gray-700/70 transition-colors">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-bold text-green-300">Software Developer</h3>
+                      <p className="text-cyan-400 font-semibold">Chatarmin</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-400 text-sm">
+                      <Calendar className="h-4 w-4" />
+                      <span>Jun 2025 - Present</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm mb-2">
+                    Implementing automated AI workflow triggers for enhanced process automation. Full-stack end-to-end development 
+                    across the entire application architecture. Project management, new channel integrations, database optimization, and frontend performance tuning.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <span className="px-2 py-1 bg-green-800/50 rounded text-xs">TypeScript</span>
+                    <span className="px-2 py-1 bg-green-800/50 rounded text-xs">Next.js</span>
+                    <span className="px-2 py-1 bg-green-800/50 rounded text-xs">AI Workflows</span>
+                    <span className="px-2 py-1 bg-green-800/50 rounded text-xs">Full-Stack</span>
+                  </div>
+                </div>
+
+                <div className="bg-gray-700/50 p-5 rounded-lg border-l-4 border-yellow-500 hover:bg-gray-700/70 transition-colors">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-bold text-yellow-300">Contributor</h3>
+                      <p className="text-cyan-400 font-semibold">Open Source - Protocol Labs & Uniswap</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-400 text-sm">
+                      <Calendar className="h-4 w-4" />
+                      <span>2024 - Present</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm mb-2">
+                    Protocol Labs Dev Guide Cohort 3; contributed to Lighthouse with reliability/performance optimizations. 
+                    Uniswap Foundation Ambassador; v4 hooks education & integration support.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <span className="px-2 py-1 bg-yellow-800/50 rounded text-xs">IPFS</span>
+                    <span className="px-2 py-1 bg-yellow-800/50 rounded text-xs">Lighthouse</span>
+                    <span className="px-2 py-1 bg-yellow-800/50 rounded text-xs">Uniswap v4</span>
+                    <span className="px-2 py-1 bg-yellow-800/50 rounded text-xs">Ambassador</span>
                   </div>
                 </div>
               </div>
