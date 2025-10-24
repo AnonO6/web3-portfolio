@@ -25,13 +25,14 @@ export function DinoGame() {
   const dinoYRef = useRef(0)
   const obstaclesRef = useRef<Obstacle[]>([])
 
+  // Game physics constants
   const GRAVITY = -0.6
   const JUMP_STRENGTH = 12
   const DINO_WIDTH = 40
   const DINO_HEIGHT = 40
   const GAME_HEIGHT = 360
   const GROUND_LEVEL = 270 // 25% from bottom (75% from top)
-  const MAX_JUMP_HEIGHT = 150 // Ceiling limit
+  const MAX_JUMP_HEIGHT = 150 // Ceiling limit - prevents infinite jumping
 
   // Load high score from localStorage
   useEffect(() => {
